@@ -1,12 +1,26 @@
+:root {
+    --bg: rgb(7, 7, 7);
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
 body {
-    background-color: rgb(26, 26, 26);
+    overflow: hidden;
+    margin: 0;
+    caret-color: rgba(255, 255, 255, 0);
 }
 
 #navbar {
+    width: 86vw;
     padding: 3vw 7vw;
+    position: fixed;
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: var(--bg);
     font-size: 1.7vw;
     font-weight: 500;
     font-family: prompt;
@@ -15,7 +29,7 @@ body {
 }
 
 #navbar a {
-    color: white;
+    color: var(--bg);
     text-decoration: none;
 }
 
@@ -38,11 +52,155 @@ body {
     border-radius: 0.2vw;
     width: 0%;
     left: 50%;
-    background-color: white;
+    background-color: var(--bg);
     transition: all 0.4s ease;
 }
 
 .navtitle:hover::after {
     width: calc(100% - 3vw);
     left: 1.5vw;
+}
+
+#body {
+    font-family: 'Montserrat';
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.homebanner {
+    z-index: 50;
+    width: 100vw;
+    height: calc(100vw * 9 / 16);
+    overflow: hidden;
+    position: relative;
+    max-height: 100vh;
+    min-height: 45vw;
+    margin: 0px;
+    background-color: black;
+    color: white;
+}
+
+.bannerimg {
+    width: 100%;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+}
+
+.bannerimg1 {
+    transform: translateX(200%);
+    z-index: 50;
+    transition: transform 0.8s ease, opacity 0.5s ease;
+    transition-delay: 0.2s;
+    opacity: 0.4;
+}
+
+.bannerimg2 {
+    transform: translateX(100%);
+    z-index: 51;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transition-delay: 0.2s;
+    opacity: 0.4;
+}
+
+.bannerimg3 {
+    transform: translateX(0);
+    z-index: 52;
+    opacity: 1;
+    transition: transform 1s ease;
+}
+
+.bannerimg4 {
+    transform: translateX(-100%);
+    z-index: 51;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transition-delay: 0.2s;
+    opacity: 0.4;
+}
+
+.bannerimg5 {
+    transform: translateX(-200%);
+    z-index: 50;
+    transition: transform 0.8s ease, opacity 0.5s ease;
+    transition-delay: 0.2s;
+    opacity: 0.4;
+}
+
+.bannercontrol,
+.bannercurrent {
+    position: absolute;
+    z-index: 60;
+}
+
+.bannercontrol {
+    color: rgba(201, 201, 201, 0.212);
+    font-size: calc(10px + 4vw);
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+
+.bannercontrol:hover {
+    color: rgba(41, 41, 41, 0.425);
+}
+
+.bannercontrol:active {
+    color: rgba(0, 0, 0, 0.596);
+}
+
+#bannercontrolprev {
+    left: 2vw;
+}
+
+#bannercontrolnext {
+    right: 2vw;
+}
+
+.bannercurrent {
+    font-size: 1.3vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 16vw;
+    left: 42vw;
+    bottom: 1%;
+    opacity: 70%;
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+
+.bannercurrent:hover {
+    color: rgb(148, 148, 148);
+}
+
+.bannercurrent :active {
+    color: rgb(27, 27, 27);
+}
+
+.bannercontent {
+    z-index: 59;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70vw;
+    left: 15vw;
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+}
+
+.bannertitle {
+    font-size: 6.5vw;
+    font-family: "Koulen", sans-serif;
+    line-height: 1;
+    text-shadow: 1vw 1vw 1vw rgb(0, 0, 0);
+}
+
+#line2 {
+    font-size: 9vw;
+}
+
+.pages {
+    height: 100vh;
+    width: 100vw;
 }
